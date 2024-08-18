@@ -14,23 +14,33 @@ var app = new Vue({
         lista: [ ]
    },
    methods: {
-      agregarNotas: function(){
-         if (this.nombre != '' && this.nota1 != '' && this.nota2 != '' && this.nota3 != '') {
-
-            this.promedio = (parseFloat(this.nota1) + parseFloat(this.nota2) + parseFloat(this.nota3)) / 3;
-
-            this.lista.push({ nombre: this.nombre, nota1: this.nota1, nota2: this.nota2, nota3: this.nota3, promedio: this.promedio})
-            
-            this.nombre = "";
-            this.nota1 = 0;
-            this.nota2 = 0;
-            this.nota3 = 0;
-            this.promedio = 0;
-            document.getElementById("nombre").focus();
-
-         } else {
-            alert('Debe ingresar todos los datos');
-         }
+      agregarNotas: function() {
+        if (this.nombre != '' && this.nota1 != '' && this.nota2 != '' && this.nota3 != '') {
+    
+          this.promedio = (parseFloat(this.nota1) + parseFloat(this.nota2) + parseFloat(this.nota3)) / 3;
+    
+          let estado = this.promedio >= 7 ? 'Aprobado' : 'Reprobado';
+    
+          this.lista.push({
+            nombre: this.nombre,
+            nota1: this.nota1,
+            nota2: this.nota2,
+            nota3: this.nota3,
+            promedio: this.promedio.toFixed(2), // Redondear el promedio a 2 decimales
+            estado: estado
+          });
+          
+          this.nombre = "";
+          this.nota1 = 0;
+          this.nota2 = 0;
+          this.nota3 = 0;
+          this.promedio = 0;
+          document.getElementById("nombre").focus();
+    
+        } else {
+          alert('Debe ingresar todos los datos');
+        }
       }
-   }
+    }
+    
 }) 

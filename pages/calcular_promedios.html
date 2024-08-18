@@ -62,6 +62,7 @@
                             <th>Nota 2</th>
                             <th>Nota 3</th>
                             <th>Promedio</th>
+                            <th>Estado</th> <!-- Nueva columna -->
                         </tr>
                       </thead>
                       <tbody>
@@ -71,11 +72,12 @@
                             <td v-text="item.nota2"></td>
                             <td v-text="item.nota3"></td>
                             <td v-text="item.promedio"></td>
+                            <td v-text="item.estado"></td> <!-- Nueva columna -->
                         </tr>
                       </tbody>
                       <tfoot>
                         <tr>
-                          <td colspan="5" class="text-center">ULS Ciclo2-2024</td>
+                          <td colspan="6" class="text-center">ULS Ciclo2-2024</td>
                         </tr>
                       </tfoot>
                     </table>
